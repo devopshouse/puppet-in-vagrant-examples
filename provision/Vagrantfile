@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# read vm and puppet configurations from JSON files
+nodes_config = (JSON.parse(File.read("files/nodes.json")))['nodes']
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/bionic64"
+ 
+  nodes_config.each do |node|
+    node_name   = node[0] # name of node
+    node_values = node[1] # content of node
+ 
+    config.vm.define node_name do |config|
+      config.vm.hostname = node_name
+      config.vm.network :private_network, ip: node_values[':ip']
+ 
+      config.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", node_values[':memory']]
+        vb.customize ["modifyvm", :id, "--name", node_name]
+      end
+ 
+      config.vm.provision :shell, :path => node_values[':bootstrap']
+    end
+  end
+end

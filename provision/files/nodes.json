@@ -1,0 +1,19 @@
+{
+  "nodes": {
+    "master": {
+      ":ip": "192.168.32.5",
+      ":memory": 2048,
+      ":bootstrap": "scripts/bootstrap-master.sh"
+    },
+    "node01": {
+      ":ip": "192.168.32.10",
+      ":memory": 512,
+      ":bootstrap": "scripts/bootstrap-node.sh"
+    },
+    "node02": {
+      ":ip": "192.168.32.20",
+      ":memory": 512,
+      ":bootstrap": "scripts/bootstrap-node.sh"
+    }
+  }
+}
