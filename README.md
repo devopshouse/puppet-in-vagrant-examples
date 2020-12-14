@@ -1,6 +1,12 @@
 ## Puppet demo
 Demo repository to demonstrate how to use puppet 7.
 
+## Requirements
+* Virtualbox installed: https://www.virtualbox.org/wiki/Downloads
+* Hashcorp Vagrant installed: https://www.vagrantup.com/downloads
+
+## Instructions
+
 To simplify to installation process 3 Vagrant Boxes will be used, as defined in the `nodes.json` file, change the ip address or memory settings.
 
 ```json
@@ -31,7 +37,7 @@ To simplify to installation process 3 Vagrant Boxes will be used, as defined in 
 
 2. Clone the git repo
 ```
-git clone 
+git clone https://github.com/devopshouse/puppet-in-vagrant-examples.git
 ```
 
 3.  Enter repo dir
